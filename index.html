@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div>
+        <img id="pos1" class="column" src="./Crystal1.png" alt="">
+        <p id="p1" class="column"></p>
+    </div>
+    <div>
+        <img id="pos2" class="column" src="./Crystal2.png" alt="">
+        <p id="p2" class="column"></p>
+    </div>
+    <div>
+        <img id="pos3" class="column" src="./Crystal3.png" alt="">
+        <p id="p3" class="column"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var mainRand = Math.floor(Math.random() * 100);
+        var maincount = 0;
+        var rand1 = Random();
+        var rand2 = Random();
+        var rand3 = Random();
+        console.log(`Mainrand : ${mainRand}`)
+
+        $("#pos1").click(function () {
+            console.log(`rand1 =${rand1}`);
+            runapp(rand1,'p1');
+        })
+
+        $("#pos2").click(function () {
+            console.log(`rand2 = ${rand2}`);
+            runapp(rand2,'p2')
+        })
+
+        $("#pos3").click(function () {
+            console.log(`rand3: ${rand3}`)
+            runapp(rand3,'p3')
+        })
+
+        function Random() {
+            return Math.floor(Math.random() * 10);
+        }
+
+        function runapp(varnumber,parid){
+            if (maincount === mainRand) {
+                alert("You won the game");
+                console.log("You won the game");
+            } else if (maincount > mainRand) {
+                alert("you lost");
+                console.log("You lost the game");
+            } else {
+                maincount += varnumber;
+                console.log(maincount);
+            }
+            document.getElementById(parid).innerHTML = maincount;
+        }
+    </script>
+</body>
+
+</html>
